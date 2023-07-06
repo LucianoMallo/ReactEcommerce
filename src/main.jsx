@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { FiltersProvider } from './context/filters.jsx'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <FiltersProvider>

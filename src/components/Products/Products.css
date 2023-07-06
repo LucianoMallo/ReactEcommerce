@@ -51,3 +51,9 @@
   background: #fff;
   
 }
+.removeFromCartButton{
+  background-color: #c22828;
+}
+.addToCartButton{
+  background-color: #09f;
+}
