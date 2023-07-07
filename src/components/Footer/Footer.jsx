@@ -4,7 +4,7 @@ import { useCart } from '../../hooks/useCart'
 
 export function Footer () {
   // const { filters } = useFilters()
-  const { cart } = useCart()
+  // const { cart } = useCart()
 
   return (
     <footer className='footer'>
@@ -14,11 +14,11 @@ export function Footer () {
       {/* {
             JSON.stringify(cart, null, 2)
         } */}
-      <div className='footer__container'>
+      <span className='footer__container'>
         <div className='footer__container__item'>
-          holis
+          Luciano Mallo
         </div>
-      </div>
+      </span>
     </footer>
   )
 }

@@ -1,4 +1,4 @@
-export default function CartItem ({ thumbnail, title, price, quantity }) {
+export default function CartItem ({ thumbnail, title, price, quantity, addToCart }) {
   return (
     <li>
       <img
@@ -12,7 +12,7 @@ export default function CartItem ({ thumbnail, title, price, quantity }) {
         <small>
           Qty: {quantity}
         </small>
-        <button>+</button>
+        <button onClick={addToCart}>+</button>
       </footer>
     </li>
   )

@@ -5,8 +5,9 @@ import { useCart } from '../../hooks/useCart.jsx'
 import CartItem from './CartItem/CartItem.jsx'
 
 export default function Cart () {
-  const { cart } = useCart()
+  const { cart, clearCart, addToCart } = useCart()
   const cartCheckboxId = useId()
+
   return (
     <>
       <label htmlFor={cartCheckboxId} className='cart-button'>
@@ -15,16 +16,22 @@ export default function Cart () {
       <input id={cartCheckboxId} type='checkbox' hidden />
 
       <aside className='cart'>
+        <button onClick={clearCart}>
+          <ClearCartIcon />
+        </button>
         <ul>
           {
             cart.map(product => (
-              <CartItem key={product.id} {...product} />
+
+              <CartItem
+                key={product.id}
+                addToCart={() => addToCart(product)}
+                {...product}
+              />
             ))
           }
         </ul>
-        <button>
-          <ClearCartIcon />
-        </button>
+
       </aside>
 
     </>
