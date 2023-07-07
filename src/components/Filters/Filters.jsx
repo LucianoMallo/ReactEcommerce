@@ -1,11 +1,15 @@
 import { useId } from 'react'
 import './Filters.css'
 import { useFilters } from '../../hooks/useFilters'
+import { categories } from '../../mocks/categories.json'
 
 export function Filters ({ changeFilter }) {
   const { filters, setFilters } = useFilters()
   const minPriceFilteredId = useId()
   const categoryFilteredId = useId()
+
+  // 2. Create a function that take all the categories inside the object and create a new object with all the categories with the inicial in capital letter and the original.
+  const categoriesCapitalized = categories.map(category => category.charAt(0).toUpperCase() + category.slice(1))
 
   function handlePriceChange (event) {
     setFilters(preState => (
@@ -20,7 +24,7 @@ export function Filters ({ changeFilter }) {
     setFilters(preState => (
       {
         ...preState,
-        category: event.target.value
+        category: event.target.value.toLowerCase()
       }
     ))
   }
@@ -54,8 +58,11 @@ export function Filters ({ changeFilter }) {
           onChange={handleCategoryChange}
         >
           <option value='all'>All</option>
-          <option value='laptops'>Laptops</option>
-          <option value='smartphones'>Smartphones</option>
+          {categoriesCapitalized.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+          {/* <option value='laptops'>Laptops</option>
+          <option value='smartphones'>Smartphones</option> */}
         </select>
       </div>
       <div>
